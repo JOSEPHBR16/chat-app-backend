@@ -1,5 +1,5 @@
 const Usuario = require('../models/usuario');
-const Mensaje = require('../models/usuario');
+const Mensaje = require('../models/mensaje');
 
 const usuarioConectado = async ( uid = '' ) => {
     const usuario = await Usuario.findById( uid );
