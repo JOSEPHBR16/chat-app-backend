@@ -1,5 +1,4 @@
 
-const mensaje = require('../models/mensaje');
 const Mensaje = require('../models/mensaje');
 
 const obtenerChat = async(req, res) => {
@@ -8,7 +7,7 @@ const obtenerChat = async(req, res) => {
     const mensajesDe = req.params.de;
 
     const last30 = await Mensaje.find({
-        $or: [{ de: miId, para: mensaje }, { de: mensajesDe, para: miId }]
+        $or: [{ de: miId, para: mensajesDe }, { de: mensajesDe, para: miId }]
     })
     .sort({ createdAt: 'desc' })
     .limit(30);
